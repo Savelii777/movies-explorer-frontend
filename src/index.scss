@@ -1,0 +1,21 @@
+@import url(./vendor/normalize.scss);
+@import url(./vendor/fonts/fonts.scss);
+
+:root {
+  --green: #3DDC84;
+  --black: #000000;
+  --white: #FFFFFF;
+  --grey-dark: #888888;
+  --grey-light: #E8E8E8;
+  --blue: #4285F4;
+  --pink: #EE3465;
+  --about-bar: #303030;
+  --footer-grey: #424242;
+  --works-grey: #E5E5E5;
+  --button-card: #2F2F2F;
+  --background-card: #222222;
+  --background-intro: #F5F5F5;
+  --background-promo: #073042;
+  --background-frontend: #202020;
+  --background-technologies: #272727 ;
+}

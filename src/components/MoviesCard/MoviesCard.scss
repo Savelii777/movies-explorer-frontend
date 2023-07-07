@@ -1,0 +1,129 @@
+.movies-card {
+  list-style: none;
+  padding: 0;
+  max-width: 364px;
+  border-radius: 6px;
+  background-color: var(--background-card);
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  @media screen and (max-width: 895px) {
+    max-width: 339px;
+  }
+  @media screen and (max-width: 495px) {
+    max-width: 300px;
+  } 
+}
+
+.movies-card__container {
+  cursor: pointer;
+}
+
+.movies-card__container :hover .movies-card__delete {
+  display: block;
+}
+
+.movies-card__image {
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.movies-card__info {
+  padding: 0px 24px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media screen and (max-width: 895px){
+    padding: 1px 8px 0 0px;
+  }
+  @media screen and (max-width: 495px){
+    padding-right: 4px;
+  }
+}
+
+.movies-card__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+  margin-left: 18px;
+    @media screen and (max-width: 495px) {
+      font-size: 12px;
+      line-height: 15px;
+  }
+}
+
+.movies-card__save {
+  display: flex;
+  margin: 18px auto;
+  min-width: 100px;
+  min-height: 29px;
+  padding: 0 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  background-color: transparent;
+  opacity: 1;
+  transition: opacity .5s ease-out;
+  padding: 0;
+  cursor: pointer;
+  background-image: url("../../images/save-button.svg");
+}
+
+
+@media (any-hover: hover) {
+  .movies-card__save:hover {
+    opacity: .7;
+  }
+  .movies-card__delete:hover {
+    opacity: .7;
+  }
+}
+
+.movies-card__save_active {
+  background-image: url("../../images/save-button_active.svg");
+  opacity: 1;
+}
+
+
+.movies-card__delete {
+  display: flex;
+  margin: 18px auto;
+  min-width: 100px;
+  min-height: 29px;
+  padding: 0 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  cursor: pointer;
+  background-image: url("../../images/delete.svg");
+  background-color: transparent;
+  opacity: 1;
+  transition: opacity .5s ease-out;
+
+  @media screen and (max-width: 495px) {
+    display: block;
+  }
+}
+
+.movies-card__time {
+  font-weight: 400;
+  padding: 0 0 16px 16px;
+  font-size: 11px;
+  line-height: 13px;
+  color: var(--grey-dark);
+  margin: 18px 0 0 0;
+  @media screen and (max-width: 895px) {
+    margin: 18px 18px 18px auto;
+    padding: 0;
+  }
+  @media screen and (max-width: 495px) {
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 14px;
+  }
+}

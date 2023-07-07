@@ -1,0 +1,128 @@
+.search-form {
+  padding-bottom: 39px;
+}
+
+.search-form__input-container {
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid var(--footer-grey);
+}
+
+.search-form__input {
+  max-width: 1140px;
+  width: 100%;
+  background-color: var(--background-frontend);
+  color: var(--grey-dark);
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 28px;
+  line-height: 18px;
+  box-sizing: border-box;
+  padding: 15px 0 15px 22px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 320px) {
+  .search-form__input {
+    font-size: 18px;
+    text-align: start;
+    padding-left: 0;
+  }
+}
+
+.search-form__icon {
+  position: absolute;
+  top: 15px;
+  left: 8px;
+  width: 34px;
+  height: 34px;
+  background-repeat: no-repeat;
+  background-image: url("../../images/search.svg");
+}
+
+@media screen and (max-width: 320px) {
+  .search-form__icon {
+    display: none;
+  }
+}
+
+.search-form__button {
+  position: absolute;
+  right: 0;
+  margin-top: 15px;
+  max-height: 34px;
+  border: none;
+  background-color: var(--blue);
+  border-radius: 40px;
+  color: var(--white);
+  box-sizing: border-box;
+  padding: 8px 17px;
+  font-size: 12px;
+  line-height: 18px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 495px) {
+  .search-form__button {
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search-form__button {
+    top: -6px;
+  }
+}
+
+.search-form__checkbox {
+  margin-top: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 495px) {
+  .search-form__checkbox {
+    margin-top: 41px;
+  }
+}
+
+.search-form__checkbox-switcher {
+  width: 36px;
+  height: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #EBEBEB;
+  justify-content: flex-start;
+}
+
+.search-form__checkbox-switcher_active {
+  justify-content: flex-end;
+  background-color: var(--green);
+}
+
+.search-form__checkbox-button {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+  border: none;
+  border-radius: 8px;
+  background-color: var(--background-intro);
+  width: 16px;
+  height: 16px;
+  margin: 0 2px;
+}
+
+.search-form__checkbox-button_active {
+  background-color: var(--white);
+}
+
+.search-form__checkbox-name {
+  margin: 0 0 0 12px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
