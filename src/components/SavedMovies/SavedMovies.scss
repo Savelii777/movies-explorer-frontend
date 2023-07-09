@@ -1,10 +1,10 @@
 .saved-movies {
-  padding: 80px 70px;
+  padding: 70px 70px;
   background-color: var(--background-frontend);
   @media screen and (max-width: 768px) {
-    padding: 80px 30px 51px;
+    padding: 70px 30px 51px;
   }
   @media screen and (max-width: 495px) {
-    padding: 81px 10px 44px;
+    padding: 70px 10px 44px;
   }
 }

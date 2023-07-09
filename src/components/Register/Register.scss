@@ -38,6 +38,7 @@
 }
 
 .form__text-error {
+  margin: 0;
   display: block;
   font-style: normal;
   font-weight: 400;
@@ -45,5 +46,4 @@
   line-height: 12px;
   color: var(--pink);
   min-height: 24px;
-  margin-top: 6px;
 }

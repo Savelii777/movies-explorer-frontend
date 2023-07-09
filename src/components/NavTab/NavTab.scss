@@ -13,6 +13,7 @@ $white: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 .nav-tab__list {
@@ -73,7 +74,7 @@ $white: var(--white);
     margin: 621px auto 92px;
   }
   @media screen and (max-width: 320px) {
-    margin: 444px auto 48px;
+    margin: 444px auto 90px;
   }
 }
 

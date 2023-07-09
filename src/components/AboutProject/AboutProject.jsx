@@ -3,7 +3,7 @@ import MainDescription from "../MainDescription/MainDescription";
 function AboutProject() {
 
   return (
-    <section className="about-project">
+    <section id="about-proj" className="about-project">
       <MainDescription title={'О проекте'} />
       <ul className="about-project__container">
       <li className="about-project__container-element">

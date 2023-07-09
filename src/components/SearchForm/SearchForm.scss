@@ -49,6 +49,7 @@
 }
 
 .search-form__button {
+  width: 58px;
   position: absolute;
   right: 0;
   margin-top: 15px;
@@ -58,7 +59,7 @@
   border-radius: 40px;
   color: var(--white);
   box-sizing: border-box;
-  padding: 8px 17px;
+  padding: 8px 10px;
   font-size: 12px;
   line-height: 18px;
   margin-left: 20px;
@@ -123,6 +124,6 @@
   margin: 0 0 0 12px;
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 18px;
 }
