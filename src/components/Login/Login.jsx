@@ -3,6 +3,7 @@ import { AppRoute } from "../../constants";
 import LoginAndRegister from "../LoginAndRegister/LoginAndRegister";
 import LoginAndRegisterForm from "../LoginAndRegisterForm/LoginAndRegisterForm";
 import ValidationForm from "../../hooks/ValidationForm";
+import "../../components/LoginAndRegisterForm/LoginAndRegisterForm.scss"
 import "../Register/Register.scss";
 function Login({ login }) {
 const { handleChange, errors, formValue } = ValidationForm();
@@ -28,7 +29,7 @@ className={buttonClassName}
 disabled={buttonDisabled}
 >
 <div className="form__container">
-<p className="form__title">E-mail</p>
+<label className="form__title">E-mail</label>
 <input
 id="email"
 className={!errors.email ? "form__input" : "form__input form__input_type_error"}
@@ -42,7 +43,7 @@ required
 <span className="form__text-error">{errors.email}</span>
 </div>
 <div className="form__container">
-<p className="form__title">Пароль</p>
+<label className="form__title">Пароль</label>
 <input
 id="password"
 name="password"

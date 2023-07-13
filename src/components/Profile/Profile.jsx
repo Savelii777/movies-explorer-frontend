@@ -21,12 +21,13 @@ function Profile({onOpenBurgerPopup}) {
   
   return (
     <Layout className="header" title="Main" isLoggedIn page={false} onOpenBurgerPopup={onOpenBurgerPopup}>
+      <section>
       <main className="profile">
-        <h2 className="profile__title">Привет, Виталий!</h2>
+        <h1 className="profile__title">Привет, Виталий!</h1>
         <form className="form" noValidate>
           <div className="profile-form__container">
             <div className="profile-form__container-input">
-              <p className="profile-form__title">Имя</p>
+              <label className="profile-form__title">Имя</label>
               <input readOnly={isInputEdit}
                 id="name"
                 className="profile-form__input"
@@ -41,7 +42,7 @@ function Profile({onOpenBurgerPopup}) {
           </div>
           <div className="profile-form__container">
             <div className="profile-form__container-input">
-              <p className="profile-form__title">E-mail</p>
+              <label className="profile-form__title">E-mail</label>
               <input readOnly={isInputEdit}
                 id="email"
                 className="profile-form__input"
@@ -70,10 +71,11 @@ function Profile({onOpenBurgerPopup}) {
         </div>
         <div className={saveButton}>
           <span className="profile__span">При обновлении профиля произошла ошибка.</span>
-          <button className={buttonClassName} disabled={buttonDisables}>Сохранить</button>
+          <button className={buttonClassName} type="button" disabled={buttonDisables}>Сохранить</button>
         </div>
         </form>
       </main>
+      </section>
     </Layout>
   );
 }

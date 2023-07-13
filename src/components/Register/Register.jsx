@@ -25,7 +25,7 @@ function Register() {
           disabled={buttonDisables}
         >
           <div className="form__container">
-            <p className="form__title">Имя</p>
+            <label className="form__title">Имя</label>
             <input
               id="name"
               className={!errors.name ? "form__input" : "form__input form__input_type_error"}
@@ -39,7 +39,7 @@ function Register() {
             <span className="form__text-error">{errors.name}</span>
           </div>
           <div className="form__container">
-            <p className="form__title">E-mail</p>
+            <label className="form__title">E-mail</label>
             <input
               id="email"
               className={!errors.email ? "form__input" : "form__input form__input_type_error"}
@@ -53,7 +53,7 @@ function Register() {
             <span className="form__text-error">{errors.email}</span>
           </div>
           <div className="form__container">
-            <p className="form__title">Пароль</p>
+            <label className="form__title">Пароль</label>
             <input
               id="password"
               name="password"

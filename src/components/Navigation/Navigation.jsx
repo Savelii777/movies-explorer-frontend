@@ -6,7 +6,7 @@ function Navigation({onOpenBurgerPopup}) {
   return (
     <>
     <NavTab />
-    <button className="header__burger" onClick={onOpenBurgerPopup}>
+    <button className="header__burger" type="button" onClick={onOpenBurgerPopup}>
       <img className="header__img" src={burger} alt="кнопка закрытия меню"/>
     </button>
     </>

@@ -10,7 +10,7 @@ function LoginAndRegister({title, paragraph, span, children, link}) {
         <Link to={AppRoute.Main}>
           <img className="login__logo" alt="логотип" src={logo} />
         </Link>
-        <h2 className="login__title">{title}</h2>
+        <h1 className="login__title">{title}</h1>
           {children}
         <Link to={link} className="login__paragraph text-hover">
           {paragraph} 

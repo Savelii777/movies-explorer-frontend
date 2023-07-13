@@ -16,7 +16,7 @@ function BurgerPopup({ isOpen, onClose }) {
   return (
     <section className={stylePopup}>
       <div className="burger-popup__container">
-        <button className="burger-popup__button" onClick={onClose}>
+        <button type="button" className="burger-popup__button" onClick={onClose}>
           <img src={esc} alt="кнопка закрытия меню" />
         </button>
         <NavTab isOpen={isOpen} onClose={onClose} />

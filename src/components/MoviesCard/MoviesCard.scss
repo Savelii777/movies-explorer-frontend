@@ -1,15 +1,24 @@
 .movies-card {
   list-style: none;
   padding: 0;
-  max-width: 364px;
+  min-width: 358px;
+  min-height: 319px;
   border-radius: 6px;
   background-color: var(--background-card);
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
-  @media screen and (max-width: 895px) {
-    max-width: 339px;
+  @media screen and (max-width: 768px) {
+    min-width: 342px;
+    min-height: 300px;
+    max-height: 309px;
   }
   @media screen and (max-width: 495px) {
-    max-width: 300px;
+    min-width: 300px;
+  } 
+  @media screen and (max-width: 320px) {
+    margin-top: -10px;
+    min-width: 300px;
+    min-height: 270px;
+    max-height: 271px;
   } 
 }
 
@@ -29,19 +38,29 @@
   object-fit: cover;
   object-position: center;
   cursor: pointer;
+  @media screen and (max-width: 768px) {
+    max-height: 190px;
+  }
+  @media screen and (max-width: 320px) {
+    max-height: 168px;
+    margin-top: 0;
+  }
 }
 
 .movies-card__info {
   height: 54px;
-  padding: 0px 24px 0 0;
+  padding: 0px 18px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media screen and (max-width: 895px){
-    padding: 1px 8px 0 0px;
+  @media screen and (max-width: 768px){
+    padding: 1px 0px 0 0px;
   }
   @media screen and (max-width: 495px){
     padding-right: 4px;
+  }
+  @media screen and (max-width: 320px){
+    height: 52px;
   }
 }
 
@@ -55,11 +74,15 @@
       font-size: 12px;
       line-height: 15px;
   }
+  @media screen and (max-width: 320px) {
+    margin: 18px auto 14px 14px;
+
+}
 }
 
 .movies-card__save {
   display: flex;
-  margin: 18px auto;
+  margin: 12px auto;
   min-width: 100px;
   min-height: 29px;
   padding: 0 8px;
@@ -73,6 +96,12 @@
   padding: 0;
   cursor: pointer;
   background-image: url("../../images/save-button.svg");
+  @media screen and (max-width: 768px) {
+    margin: 18px auto;
+  }
+  @media screen and (max-width: 320px) {
+    margin: 10px auto;
+  }
 }
 
 
@@ -114,7 +143,7 @@
 
 .movies-card__time {
   font-weight: 400;
-  padding: 0 0 16px 16px;
+  padding: 0 0 20px 16px;
   font-size: 13px;
   line-height: 18px;
   color: var(--grey-dark);
@@ -127,5 +156,8 @@
     font-size: 10px;
     line-height: 12px;
     margin-top: 14px;
+  }
+  @media screen and (max-width: 320px) {
+    margin: 19px 10px 14px auto;
   }
 }

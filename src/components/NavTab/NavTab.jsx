@@ -12,15 +12,15 @@ function NavTab({isOpen, onClose}) {
   return (
     <div className={styleHeaderNavigation}>
       <ul className="nav-tab__list">
-        <li className="nav-tab__item text-hover" onClick={onClose}>
+        <nav className="nav-tab__item text-hover" onClick={onClose}>
           <NavLink className={linkClassName} to={AppRoute.Main}>Главная</NavLink>
-        </li>
-        <li className="nav-tab__item text-hover" onClick={onClose}>
+        </nav>
+        <nav className="nav-tab__item text-hover" onClick={onClose}>
           <NavLink className={linkClassName} to={AppRoute.Movies}>Фильмы</NavLink>
-        </li>
-        <li className="nav-tab__item text-hover" onClick={onClose}>
+        </nav>
+        <nav className="nav-tab__item text-hover" onClick={onClose}>
           <NavLink className={linkClassName} to={AppRoute.SavedMovies}>Сохраненные фильмы</NavLink>
-        </li>
+        </nav>
       </ul>
       <NavLink to={AppRoute.Profile} className={profileLink}>
         <p className="nav-tab__profile-name">Аккаунт</p>

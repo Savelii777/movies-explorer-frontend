@@ -1,11 +1,12 @@
 .techs {
   background-color: var(--background-technologies);
   padding: 100px 70px;
+  min-height: 425px;
 }
 
 @media screen and (max-width: 768px) {
   .techs {
-    padding: 90px 50px;
+    padding: 93px 50px;
   }
 }
 
@@ -39,9 +40,17 @@
     margin-top: 60px;
   }
 }
+@media screen and (max-width: 320px) {
+  .techs__title {
+    margin-top: 60px;
+  }
+  .techs{
+    margin-bottom: 43px;
+  }
+}
 
 .techs__description {
-  margin: 31px auto 100px;
+  margin: 26px auto 100px;
   text-align: center;
   font-weight: 400;
   font-size: 14px;
@@ -81,8 +90,9 @@
 
 @media screen and (max-width: 768px) {
   .techs__list {
+    padding-top: 3px;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    max-width: 663px;
+    max-width: 660px;
     row-gap: 10px;
     column-gap: 1px;
     justify-items: center;
@@ -93,7 +103,7 @@
   .techs__list {
     max-width: 178px;
     grid-template-columns: repeat(2, 1fr);
-    gap: 13px;
+    gap: 12px;
   }
 }
 

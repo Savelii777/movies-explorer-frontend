@@ -12,13 +12,13 @@ function MoviesCard({ film, props }) {
         <div className="movies-card__container">
           <div>
           <div className="movies-card__info">
-            <h4 className="movies-card__title">{nameRu}</h4>
-            <p className="movies-card__time">{hours}ч {minutes}м</p>
+            <h2 className="movies-card__title">{nameRu}</h2>
+            <p className="movies-card__time">{minutes} минут</p>
           </div>
           <a className="movies-card__trailer-link" href={trailerLink} target="_blank" rel="noreferrer">
         <img className="movies-card__image" alt="постер фильма" src={image}/>
       </a>
-          <button className={className} alt={alt} onClick={saveClick}/>
+          <button type="button" className={className} alt={alt} onClick={saveClick}/>
           </div>
       </div>  
     </li>
