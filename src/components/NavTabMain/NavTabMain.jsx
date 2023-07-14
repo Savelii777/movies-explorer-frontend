@@ -11,7 +11,7 @@ function NavTabMain() {
           <Link to={AppRoute.Register} className="nav-tab-main__link">Регистрация</Link>
         </li>
         <li className="nav-tab-main__item button-hover">
-          <Link to={AppRoute.Login} className="nav-tab-main__link login__button nav-tab-main__link-login">Войти</Link>
+          <Link to={AppRoute.Login} className="nav-tab-main__link nav-tab-main__button nav-tab-main__link-login">Войти</Link>
         </li>
       </ul>
       </nav>

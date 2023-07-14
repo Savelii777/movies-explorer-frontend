@@ -34,6 +34,8 @@ function Register() {
               value={formValue.name || ''}
               onChange={handleChange}
               minLength="2"
+              maxLength="30"
+              placeholder="введите ваше имя"
               required
             />
             <span className="form__text-error">{errors.name}</span>
@@ -48,6 +50,8 @@ function Register() {
               value={formValue.email || ''}
               onChange={handleChange}
               minLength="2"
+              maxLength="30"
+              placeholder="введите ваш email"
               required
             />
             <span className="form__text-error">{errors.email}</span>
@@ -62,6 +66,8 @@ function Register() {
               className={!errors.password ? "form__input" : "form__input form__input_type_error"}
               onChange={handleChange}
               minLength="2"
+              maxLength="30"
+              placeholder="введите ваш пароль"
               required
             />
             <span className="form__text-error">{errors.password}</span>

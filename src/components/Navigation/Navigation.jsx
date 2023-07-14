@@ -7,7 +7,7 @@ function Navigation({onOpenBurgerPopup}) {
     <>
     <NavTab />
     <button className="header__burger" type="button" onClick={onOpenBurgerPopup}>
-      <img className="header__img" src={burger} alt="кнопка закрытия меню"/>
+      <img className="header__img" src={burger} alt="бургер"/>
     </button>
     </>
   );

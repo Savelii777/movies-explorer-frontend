@@ -11,7 +11,7 @@ function SavedMovies({onOpenBurgerPopup, isLoading}) {
       <main className="saved-movies">
         <SearchForm />
         {isLoading ? <Preloader /> : 
-          <MoviesCardList className="movies-card__delete" alt="кнопка: удалить фильм"/>}
+          <MoviesCardList className="movies-card__delete"/>}
         </main>
     </Layout>
   );

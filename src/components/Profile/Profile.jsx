@@ -4,10 +4,17 @@ import {AppRoute} from "../../constants";
 import Layout from "../Layout/Layout";
 import { useState } from "react";
 import ValidationForm from "../../hooks/ValidationForm";
+import { useNavigate } from "react-router-dom";
+
 
 function Profile({onOpenBurgerPopup}) {
   const {handleChange, errors, formValue } = ValidationForm();
   const [isInputEdit, setIsInputEdit] = useState(true);
+  const navigate = useNavigate();
+
+  const navigateToRoot = () => {
+    navigate("/");
+  };
   
   function handleEditClick(evt) {
     evt.preventDefault();
@@ -35,7 +42,9 @@ function Profile({onOpenBurgerPopup}) {
                 type="text"
                 value={formValue.name || 'name'}
                 minLength="2"
+                maxLength="30"
                 onChange={handleChange}
+                placeholder="введите ваше имя"
               />
             </div>
             <span className="form__text-error form__text-error-profile">{errors.name}</span>
@@ -50,7 +59,9 @@ function Profile({onOpenBurgerPopup}) {
                 type="email"
                 value={formValue.email || 'email@mail.ru'}
                 minLength="2"
+                maxLength="30"
                 onChange={handleChange}
+                placeholder="введите ваш email"
               />
             </div>
             <span className="form__text-error form__text-error-profile">{errors.email}</span>
@@ -63,11 +74,9 @@ function Profile({onOpenBurgerPopup}) {
             >
               Редактировать
             </button>
-            <Link to={AppRoute.Main} className="profile__link text-hover">
-            <button className="profile__button" type="button" aria-label="">
-              Выйти из аккаунта
-            </button>
-          </Link>
+          <div className="profile__link text-hover">
+            <button className="profile__button" type="button" aria-label="" onClick={navigateToRoot} > Выйти из аккаунта </button>
+          </div>
         </div>
         <div className={saveButton}>
           <span className="profile__span">При обновлении профиля произошла ошибка.</span>

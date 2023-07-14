@@ -18,12 +18,12 @@ function SearchForm() {
           <button className="search-form__button button-hover" type="submit" aria-label="Кнопка найти">Найти</button>
         </div>
       </form>
-      <label className="search-form__checkbox">
+      <div className="search-form__checkbox">
         <div className={switcherClassName}>
           <button className={buttonClassName} type="button" aria-label="поиск по короткометражкам"></button>
         </div>
         <p className="search-form__checkbox-name">Короткометражки</p>
-    </label>
+    </div>
     </section>
   );
 }

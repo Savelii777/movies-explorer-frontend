@@ -22,7 +22,7 @@ function Movies({onOpenBurgerPopup, isLoading}) {
       <main className="movies">
         <SearchForm />
         {isLoading ? <Preloader /> : 
-          <MoviesCardList className={cardSaveButtonClassName} alt="кнопка: избранное" saveClick={handleSaveClick}/>}
+          <MoviesCardList className={cardSaveButtonClassName} saveClick={handleSaveClick}/>}
         </main>
     </Layout>
   );

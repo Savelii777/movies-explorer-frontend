@@ -16,7 +16,7 @@ function MoviesCard({ film, props }) {
             <p className="movies-card__time">{minutes} минут</p>
           </div>
           <a className="movies-card__trailer-link" href={trailerLink} target="_blank" rel="noreferrer">
-        <img className="movies-card__image" alt="постер фильма" src={image}/>
+        <img className="movies-card__image" alt={nameRu} src={image}/>
       </a>
           <button type="button" className={className} alt={alt} onClick={saveClick}/>
           </div>

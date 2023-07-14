@@ -1,4 +1,5 @@
 .profile {
+  width: 410px;
   max-width: 410px;
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@
     padding: 231px 30px 269px;
   }
   @media screen and (max-width: 320px) {
-    padding: 65px 30px 40px;
+    padding: 68px 30px 40px;
     max-width: 260px;
   }
 }
@@ -34,7 +35,10 @@
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
-  
+  width: 410px;
+  @media screen and (max-width: 320px) {
+    width: 260px
+  }
 }
 
 .profile-form__container:first-of-type {

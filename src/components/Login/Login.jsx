@@ -15,7 +15,7 @@ function Login({ login }) {
   }
 
   const buttonDisabled = !(errors.email === "" && errors.password === "");
-  const buttonClassName = `login__button form__button ${buttonDisabled ? "form__button_disabled" : "button-hover"}`;
+  const buttonClassName = `form__button-login form__button ${buttonDisabled ? "form__button_disabled" : "button-hover"}`;
 
   return (
     <main>
@@ -41,6 +41,8 @@ function Login({ login }) {
               value={formValue.email || ""}
               onChange={handleChange}
               minLength="2"
+              maxLength="30"
+              placeholder="введите ваш email"
               required
             />
             <span className="form__text-error">{errors.email}</span>
@@ -55,6 +57,8 @@ function Login({ login }) {
               className={!errors.password ? "form__input" : "form__input form__input_type_error"}
               onChange={handleChange}
               minLength="2"
+              maxLength="30"
+              placeholder="введите ваш пароль"
               required
             />
             <span className="form__text-error">{errors.password}</span>
