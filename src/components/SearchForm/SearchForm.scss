@@ -14,7 +14,7 @@
   width: 100%;
   background-color: var(--background-frontend);
   color: var(--grey-dark);
-  border-radius: 4px;
+  border-radius: 20px;
   border: none;
   outline: none;
   text-align: center;
@@ -23,6 +23,11 @@
   box-sizing: border-box;
   padding: 15px 0 15px 0px;
   font-weight: 500;
+}
+.search-form__input:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  transition: outline 0.1s ease-in-out;
 }
 .search-form__icon {
   position: absolute;
@@ -58,6 +63,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.search-form__checkbox:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .search-form__checkbox-switcher {

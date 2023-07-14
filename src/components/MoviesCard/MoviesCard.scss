@@ -107,10 +107,12 @@
 
 @media (any-hover: hover) {
   .movies-card__save:hover {
-    opacity: .7;
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
   }
   .movies-card__delete:hover {
-    opacity: .7;
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
   }
 }
 

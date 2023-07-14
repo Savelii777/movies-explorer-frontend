@@ -61,10 +61,13 @@
   width: 80%;
   background: none;
   color: var(--white);
+  border-radius: 20px;
 }
 
 .profile-form__input:focus {
-  outline: none;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  transition: outline 0.1s ease-in-out;
 }
 
 
