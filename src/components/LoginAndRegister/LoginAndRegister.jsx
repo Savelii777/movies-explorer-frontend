@@ -14,7 +14,7 @@ function LoginAndRegister({title, paragraph, span, children, link}) {
           {children}
         <Link to={link} className="login__paragraph text-hover">
           {paragraph} 
-          <span className="login__paragraph_span">{span}</span>
+          <span className="login__paragraph-span">{span}</span>
         </Link>
       </section>
   );

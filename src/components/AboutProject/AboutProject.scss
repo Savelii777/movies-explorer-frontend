@@ -139,6 +139,10 @@
 }
 
 @media screen and (max-width: 320px) {
+  .about-project {
+    margin-top: -2px;
+    margin-left: 2px;
+  }
   .about-project__title {
     font-size: 18px;
     line-height: 22px;

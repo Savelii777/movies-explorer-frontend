@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 8px;
+  @media screen and (max-width: 768px) {
+    padding-top: 10px;
+  }
   @media screen and (max-width: 495px) {
     padding-top: 14px;
   }
@@ -10,20 +12,21 @@
 
 .movies-card-list__list {
   max-width: 1140px;
-  margin-top: 70px;
+  margin-top: 79px;
   padding: 0;
   display: grid;
   row-gap: 32px;
-  column-gap: 32px;
+  column-gap: 28px;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  align-items: center;
     @media screen and (max-width: 1150px) {
     margin-top: 82px;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 35px;
     column-gap: 24px;
   }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 730px) {
     grid-template-columns: 1fr;
     gap: 14px;
     margin-top: 40px;
@@ -60,6 +63,7 @@
   }
   @media screen and (max-width: 320px) {
     margin-top: 72px;
+    max-width: 240px;
   }
 }
 

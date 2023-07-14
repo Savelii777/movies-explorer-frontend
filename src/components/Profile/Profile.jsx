@@ -21,8 +21,8 @@ function Profile({onOpenBurgerPopup}) {
   
   return (
     <Layout className="header" title="Main" isLoggedIn page={false} onOpenBurgerPopup={onOpenBurgerPopup}>
-      <section>
       <main className="profile">
+      <section>
         <h1 className="profile__title">Привет, Виталий!</h1>
         <form className="form" noValidate>
           <div className="profile-form__container">
@@ -38,7 +38,7 @@ function Profile({onOpenBurgerPopup}) {
                 onChange={handleChange}
               />
             </div>
-            <span className="form__text-error form__text-error_profile">{errors.name}</span>
+            <span className="form__text-error form__text-error-profile">{errors.name}</span>
           </div>
           <div className="profile-form__container">
             <div className="profile-form__container-input">
@@ -53,7 +53,7 @@ function Profile({onOpenBurgerPopup}) {
                 onChange={handleChange}
               />
             </div>
-            <span className="form__text-error form__text-error_profile">{errors.email}</span>
+            <span className="form__text-error form__text-error-profile">{errors.email}</span>
           </div>
           <div className={editButton}>
             <button onClick={handleEditClick}
@@ -74,8 +74,8 @@ function Profile({onOpenBurgerPopup}) {
           <button className={buttonClassName} type="button" disabled={buttonDisables}>Сохранить</button>
         </div>
         </form>
+        </section>
       </main>
-      </section>
     </Layout>
   );
 }

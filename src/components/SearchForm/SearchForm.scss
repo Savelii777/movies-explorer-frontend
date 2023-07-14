@@ -54,7 +54,7 @@
 
 
 .search-form__checkbox {
-  margin-top: 31px;
+  margin-top: 29px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,6 +97,9 @@
   line-height: 18px;
 }
 @media screen and (max-width: 768px) {
+  .search-form__input-container {
+    margin-top: -18px;
+  }
   .search-form__input {
     margin-top: 12px;
   }
