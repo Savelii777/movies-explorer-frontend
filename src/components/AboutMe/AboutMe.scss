@@ -9,7 +9,7 @@
 
 .about-me {
   background-color: var(--background-frontend);
-  padding: 90px 70px 110px 70px;
+  padding: 110px 70px 110px 70px;
 }
 
 .about-me__container {
@@ -65,7 +65,7 @@
 @media screen and (max-width: 768px) {
   .about-me {
     padding: var(--padding-medium);
-    margin-top: -80px;
+    margin-top: -46px;
     margin-bottom: 7px;
   }
 
@@ -104,6 +104,7 @@
     align-items: center;
   }
   .about-me {
+    
     padding: var(--padding-small);
   }
 
@@ -138,7 +139,7 @@
 }
 @media screen and (max-width: 320px) {
   .about-me {
-    margin-top: -125px;
+    margin-top: -44px;
   }
   .about-me__title {  
     margin-top: -20px;

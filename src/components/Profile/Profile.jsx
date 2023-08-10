@@ -40,7 +40,7 @@ function Profile({onOpenBurgerPopup}) {
                 className="profile-form__input"
                 name="name"
                 type="text"
-                value={formValue.name || 'name'}
+                value={formValue.name || 'Виталий'}
                 minLength="2"
                 maxLength="30"
                 onChange={handleChange}
@@ -57,7 +57,7 @@ function Profile({onOpenBurgerPopup}) {
                 className="profile-form__input"
                 name="email"
                 type="email"
-                value={formValue.email || 'email@mail.ru'}
+                value={formValue.email || 'pochta@yandex.ru'}
                 minLength="2"
                 maxLength="30"
                 onChange={handleChange}

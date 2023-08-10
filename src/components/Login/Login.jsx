@@ -20,7 +20,7 @@ function Login({ login }) {
   return (
     <main>
       <LoginAndRegister
-        title={"Рады вас видеть!"}
+        title={"Рады видеть!"}
         link={AppRoute.Register}
         paragraph={"Ещё не зарегистрированы?"}
         span={"Регистрация"}

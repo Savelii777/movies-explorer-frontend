@@ -15,7 +15,7 @@ function NotFound() {
         <h1 className="not-found__title">404</h1>
         <p className="not-found__decription">Страница не найдена</p>
         <button
-          className="not-found__button button-hover"
+          className="not-found__button"
           type="button"
           aria-label="вернуться назад"
           onClick={navigateToRoot}
