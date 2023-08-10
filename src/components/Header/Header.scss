@@ -1,0 +1,27 @@
+.header {
+  padding: 18px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-frontend);
+  @media screen and (max-width: 768px) {
+    padding: 18px 30px;
+  }
+  @media screen and (max-width: 320px) {
+    padding: 18px 14px;
+  }
+}
+
+.header__image {
+  width: 38px;
+  height: 38px;
+}
+.header__image:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+}
+
+
+.header-main {
+  background-color: var(--background-promo);
+}

@@ -1,0 +1,10 @@
+.movies {
+  padding: 70px 70px 95px;
+  background-color: var(--background-frontend);
+  @media screen and (max-width: 768px) {
+    padding: 70px 30px 79px;
+  }
+  @media screen and (max-width: 495px) {
+    padding: 68px 10px 81px;
+  }
+}
