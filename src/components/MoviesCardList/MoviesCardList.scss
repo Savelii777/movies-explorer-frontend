@@ -71,3 +71,18 @@
   opacity: 0.6;
   transition: opacity 0.2s ease-in-out;
 }
+
+
+.movies-card-list__button_active {
+  display: block;
+}
+
+.movies-card-list__button-all {
+  max-width: 100%;
+  display: block;
+  background-color: var(--blue);
+  color: var(--white);
+}
+.movies-card-list__button-all_disabled {
+  display: none;
+}

@@ -1,64 +1,70 @@
-import { AppRoute } from "../../constants";
+import {AppRoute} from "../../utils/constants";
 import LoginAndRegister from "../LoginAndRegister/LoginAndRegister";
 import LoginAndRegisterForm from "../LoginAndRegisterForm/LoginAndRegisterForm";
 import ValidationForm from "../../hooks/ValidationForm";
-import "../../components/LoginAndRegisterForm/LoginAndRegisterForm.scss";
 import "../Register/Register.scss";
 
-function Login({ login }) {
-  const { handleChange, errors, formValue } = ValidationForm();
+function Login({login}) {
+  const {handleChange, errors, formValue} = ValidationForm();
 
-  function handleSubmit() {
-    login();
+  function handelSubmit(e) {
+    e.preventDefault();
+    login(formValue.password, formValue.email);
     formValue.password = "";
     formValue.email = "";
   }
 
-  const buttonDisabled = !(errors.email === "" && errors.password === "");
-  const buttonClassName = `form__button-login form__button ${buttonDisabled ? "form__button_disabled" : "button-hover"}`;
-
+  const buttonDisables = !(errors.email === "" && errors.password === "");
+  const buttonClassName = `login__button form__button ${
+    buttonDisables ? "form__button_disabled" : "button-hover"
+  }`;
+  
   return (
     <main>
       <LoginAndRegister
         title={"Рады видеть!"}
         link={AppRoute.Register}
         paragraph={"Ещё не зарегистрированы?"}
-        span={"Регистрация"}
+        span={" Регистрация"}
       >
         <LoginAndRegisterForm
           buttonText={"Войти"}
-          onSubmit={handleSubmit}
+          onSubmit={handelSubmit}
           className={buttonClassName}
-          disabled={buttonDisabled}
+          disabled={buttonDisables}
         >
           <div className="form__container">
-            <label className="form__title" htmlFor="email">E-mail</label>
+            <p className="form__title">E-mail</p>
             <input
               id="email"
-              className={!errors.email ? "form__input" : "form__input form__input_type_error"}
+              className={
+                !errors.email
+                  ? "form__input"
+                  : "form__input form__input_type_error"
+              }
               name="email"
               type="email"
               value={formValue.email || ""}
               onChange={handleChange}
               minLength="2"
-              maxLength="30"
-              placeholder="введите ваш email"
               required
             />
             <span className="form__text-error">{errors.email}</span>
           </div>
           <div className="form__container">
-            <label className="form__title" htmlFor="password">Пароль</label>
+            <p className="form__title">Пароль</p>
             <input
               id="password"
               name="password"
               type="password"
               value={formValue.password || ""}
-              className={!errors.password ? "form__input" : "form__input form__input_type_error"}
+              className={
+                !errors.password
+                  ? "form__input"
+                  : "form__input form__input_type_error"
+              }
               onChange={handleChange}
               minLength="2"
-              maxLength="30"
-              placeholder="введите ваш пароль"
               required
             />
             <span className="form__text-error">{errors.password}</span>

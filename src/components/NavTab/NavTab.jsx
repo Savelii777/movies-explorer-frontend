@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import profile from "../../images/profile.svg"
-import { AppRoute } from "../../constants";
+import { AppRoute } from "../../utils/constants";
 import "./NavTab.scss"
 
 function NavTab({isOpen, onClose}) {

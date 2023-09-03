@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./NavTabMain.scss"
-import { AppRoute } from "../../constants";
+import { AppRoute } from "../../utils/constants";
 
 function NavTabMain() {
   return (

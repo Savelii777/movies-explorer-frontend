@@ -1,6 +1,6 @@
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
-import { AppRoute } from "../../constants";
+import { AppRoute } from "../../utils/constants";
 import "./Header.scss";
 import NavTabMain from "../NavTabMain/NavTabMain";
 import Navigation from "../Navigation/Navigation";
