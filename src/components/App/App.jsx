@@ -43,6 +43,7 @@ function App() {
   const [isFiltered, setIsFiltered] = useState(false);
   const [filteredAllMovies, setFilteredAllMovies] = useState([]); 
   const [formValue, setFormValue] = useState("")
+  const [requestsCounter, setRequestsCounter] = useState(0);
 
 
   const navigate = useNavigate();
@@ -86,23 +87,26 @@ useEffect(() => {
   }
 }, [token]);
 
-useEffect(() => {
+useEffect(() => { 
   setIsLoading(true);
-  if (loggedIn) {
+  if (loggedIn && isFiltered) {
     apiMovies
       .getMovies()
       .then((movies) => {
         setMovies(movies);
-        navigate(false);
+        navigate({replace: false});
+        console.log("Фильмы подкгрузились")
       })
       .catch((err) => {
-        setMoviesError(errorText);
+        setMoviesError(errorText)
       })
-      .finally(() => setIsLoading(false));
-  }
-}, [loggedIn]);
+      .finally(setTimeout(() => setIsLoading(false), 1000));
+    }
+}, [loggedIn, isFiltered]);
 
-useEffect(() => {
+
+
+useEffect(() => { 
   if (loggedIn) {
     setIsLoading(true);
     api
@@ -112,10 +116,10 @@ useEffect(() => {
       })
       .catch((err) => {
         console.log(err);
-        setMoviesError(errorText);
+        setMoviesError(errorText)
       })
-      .finally(() => setIsLoading(false));
-  }
+      .finally(setTimeout(() => setIsLoading(false), 1000));
+    }
 }, [loggedIn]);
 
 
@@ -200,24 +204,50 @@ async function handleLoginClick(password, email) {
 
 function handleUpdateUserClick(value) {
   setIsLoading(true);
-
   api.saveNewUserInfo(value)
     .then((user) => {
       setCurrentUser(user);
       setUpdateUserError("Данные изменены успешно");
       closeAllPopups();
+      setRequestsCounter(requestsCounter+1);
+      if (requestsCounter%2===1) {
+        setOpenInfoTooltip(true);
+        isregisterResponse({
+          status: true,
+          text: "Ура! Вы успешно зарегистрировались!",
+        });
+      }
     })
     .catch((err) => {
       if (err === "Ошибка: 409") {
-        setUpdateUserError("Пользователь с такой почтой уже зарегистрирован");
+        setUpdateUserError("Пользователь с такой почтой уже есть");
+        setRequestsCounter(requestsCounter+1);
+        if (requestsCounter%2===1) {
+          setOpenInfoTooltip(true);
+          isregisterResponse({
+            status: false,
+            text: "Упс, пользователь с такой почтой уже есть",
+          });
+        }
       } else {
         setUpdateUserError(err);
+        setRequestsCounter(requestsCounter+1);
+        if (requestsCounter%2===1) {
+          setOpenInfoTooltip(true);
+          isregisterResponse({
+            status: false,
+            text: "Упс, Что-то пошло не так! Попробуйте ещё раз.",
+          });
+        }
       }
     })
     .finally(() => {
       setIsLoading(false);
     });
 }
+
+
+
 
   function signOut() {
     navigate(AppRoute.Login);

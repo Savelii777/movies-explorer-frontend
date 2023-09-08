@@ -1,7 +1,9 @@
 import MoviesCard from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.scss";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import MoviesEmpty from "../MoviesEmpty/MoviesEmpty";
+import { ScreenWidth, Count } from '../../utils/constants';
+
 
 function MoviesCardList({props, pageSavedMovie}) {
   const {
@@ -15,48 +17,43 @@ function MoviesCardList({props, pageSavedMovie}) {
     movies
   } = props;
 
-  const [countCard, setCountCard] = useState(12);
   const buttonAllMovies = pageSavedMovie
     ? "movies-card-list__button-all_disabled"
     : `movies-card-list__button movies-card-list__button-all ${
         !activeShowAllMovies && "movies-card-list__button-all_disabled"
       }`;
   const buttonMore = `movies-card-list__button ${!pageSavedMovie && "movies-card-list__button movies-card-list__button_active button-hover"}`;
+  
+  
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const handleResizeWindow = () => setWindowWidth(window.innerWidth);
+  const [cardsCountToShow, setCardsCountToShow] = useState(0);
 
+  
   useEffect(() => {
-    const handleChangeWidthScreen = () => {
-      if (window.innerWidth < 377) {
-        setCountCard(5);
-      } else if (window.innerWidth < 898) {
-        setCountCard(8);
-      } else {
-        setCountCard(12);
-      }
-    };
-  
-    const handleResize = () => {
-      clearTimeout(timer);
-      timer = setTimeout(handleChangeWidthScreen, 300);
-    };
-  
-    let timer;
-    window.addEventListener("resize", handleResize);
-  
+    window.addEventListener('resize', handleResizeWindow);
     return () => {
-      window.removeEventListener("resize", handleResize);
-      clearTimeout(timer);
+      window.removeEventListener('resize', handleResizeWindow);
     };
   }, []);
   
-  const handleMoreFilmsShow = () => {
-    if (movies.length !== 0) {
-      if (window.innerWidth > 897) {
-        setCountCard((prevCount) => prevCount + 3);
-      } else {
-        setCountCard((prevCount) => prevCount + 2);
-      }
+  useEffect(() => {
+    if (windowWidth <= ScreenWidth.MOBILE) {
+      setCardsCountToShow(Count.MOBILE);
+    } else if (windowWidth <= ScreenWidth.TABLET) {
+      setCardsCountToShow(Count.TABLET);
+    } else {
+      setCardsCountToShow(Count.DESKTOP);
     }
-  };
+  }, [windowWidth, movies.length]);
+
+
+  const handleShowMore = () => {
+    setCardsCountToShow((current) => {
+      return current + (windowWidth <= ScreenWidth.TABLET ? 2 : 3);
+    })
+  }
+  
 
   return (
     <section className="movies-card-list">
@@ -74,8 +71,8 @@ function MoviesCardList({props, pageSavedMovie}) {
                 {movies.length !== 0 && isFiltered ? (
                   <>
                   <ul className="movies-card-list__list">
-                    {movies.slice(0, countCard).map((film, index) => {
-                      return index < countCard &&
+                    {movies.slice(0,cardsCountToShow ).map((film, index) => {
+                      return index < cardsCountToShow &&
                         <MoviesCard
                         //проверяем каждый фильм и сравниваем с сохраненными фильмами 
                           isSaved={savedMovies.find((savedMovie) => savedMovie.movieId === film.id)}
@@ -88,8 +85,8 @@ function MoviesCardList({props, pageSavedMovie}) {
                         />
                     })}
                   </ul>
-                  {movies.length > countCard && (
-                    <button className={buttonMore} aria-label="больше фильмов" type="button" onClick={handleMoreFilmsShow}>
+                  {movies.length > cardsCountToShow && (
+                    <button className={buttonMore} aria-label="больше фильмов" type="button" onClick={handleShowMore}>
                       Ещё
                     </button>
                   )}

@@ -3,9 +3,16 @@ import SearchForm from "../SearchForm/SearchForm";
 import "./SavedMovies.scss";
 import Layout from "../Layout/Layout";
 import Preloader from "../Preloader/Preloader";
+import React, { useEffect } from 'react';
+
 
 function SavedMovies(props) {
   const {onOpenBurgerPopup, isLoading} = props;
+
+  useEffect(() => {
+    localStorage.removeItem("filteredMovies")
+    localStorage.removeItem("formValue")
+  }, []);
 
   return (
     <Layout className="header" isLoggedIn card onOpenBurgerPopup={onOpenBurgerPopup} page>

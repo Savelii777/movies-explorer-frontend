@@ -4,7 +4,7 @@ import { AppRoute } from '../../utils/constants';
 
 const ProtectedRouteElement = ({ component: Component, ...props  }) => {
   return (
-    props.isLoggedIn ? <Component {...props} /> : <Navigate to={AppRoute.Login} />
+    props.isLoggedIn ? <Component {...props} /> : <Navigate to={AppRoute.Main} />
 )}
 
 export default ProtectedRouteElement;

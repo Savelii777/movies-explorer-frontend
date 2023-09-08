@@ -14,7 +14,9 @@ function Register({register}) {
   const buttonClassName = buttonDisables
     ? "form__button form__button-register form__button_disabled"
     : "form__button form__button-register button-hover";
-
+    
+    
+  
   function handelSubmit(e) {
     e.preventDefault();
     register(formValue.password, formValue.email, formValue.name);
@@ -68,10 +70,13 @@ function Register({register}) {
               type="email"
               value={formValue.email || ""}
               onChange={handleChange}
+              autoComplete="off"
               minLength="2"
               required
             />
-            <span className="form__text-error">{errors.email}</span>
+<span className="form__text-error">
+    {errors.email}
+</span>
           </div>
           <div className="form__container">
             <p className="form__title">Пароль</p>

@@ -16,6 +16,7 @@ function Profile({onOpenBurgerPopup, currentUser, onUpdateUser, updateUserError,
       email: formValue.email,
     });
     setIsInputEdit(!isInputEdit);
+    
   }
 
   useEffect(() => {

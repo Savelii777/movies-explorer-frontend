@@ -1,5 +1,6 @@
-  import { useEffect } from "react";
+  import React, { useEffect, useContext} from "react";
   import "./SearchForm.scss";
+
 
   function SearchForm({props, pageSavedMovie}) {
     const {
