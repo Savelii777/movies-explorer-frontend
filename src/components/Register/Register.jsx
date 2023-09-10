@@ -19,10 +19,17 @@ function Register({register}) {
   
   function handelSubmit(e) {
     e.preventDefault();
-    register(formValue.password, formValue.email, formValue.name);
-    formValue.password = "";
-    formValue.email = "";
-    formValue.name = "";
+    register(formValue.password, formValue.email, formValue.name)
+    .then((response) => {
+      if (response.status === 200) {
+        formValue.password = "";
+        formValue.email = "";
+        formValue.name = "";
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   return (

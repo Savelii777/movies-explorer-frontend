@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import "./NotFound.scss";
 
 function NotFound() {
+  const goBack = () => {
+    window.history.go(-4);
+  };
+
   return (
     <main className="not-found">
       <h2 className="not-found__title">404</h2>
@@ -10,7 +14,7 @@ function NotFound() {
         className="not-found__button button-hover"
         type="button"
         aria-label="вернуться назад"
-        onClick={() => window.history.back()}
+        onClick={goBack}
       >
         Назад
       </button>

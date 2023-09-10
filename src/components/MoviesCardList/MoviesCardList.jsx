@@ -3,19 +3,20 @@ import "./MoviesCardList.scss";
 import {useEffect, useState, useContext} from "react";
 import MoviesEmpty from "../MoviesEmpty/MoviesEmpty";
 import { ScreenWidth, Count } from '../../utils/constants';
-
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function MoviesCardList({props, pageSavedMovie}) {
   const {
     activeShowAllMovies,
     moviesError,
     errorSaveMovies,
-    savedMovies,
     isFiltered,
     handleShowAllMovies,
     handleSaveMovie,
     movies
   } = props;
+
+  const { savedMovies }= useContext(CurrentUserContext);
 
   const buttonAllMovies = pageSavedMovie
     ? "movies-card-list__button-all_disabled"

@@ -2,21 +2,25 @@ import {Link} from "react-router-dom";
 import "./Profile.scss";
 import {AppRoute} from "../../utils/constants";
 import Layout from "../Layout/Layout";
-import {useEffect, useState} from "react";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useContext, useEffect, useState } from 'react';
 import ValidationForm from "../../hooks/ValidationForm";
 
-function Profile({onOpenBurgerPopup, currentUser, onUpdateUser, updateUserError, signOut}) {
+function Profile({onOpenBurgerPopup, onUpdateUser, updateUserError, signOut}) {
   const {handleChange, errors, formValue, setFormValue} = ValidationForm();
   const [isInputEdit, setIsInputEdit] = useState(true);
+  const {currentUser} = useContext(CurrentUserContext);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsSubmitting(true);
     onUpdateUser({
       name: formValue.name,
       email: formValue.email,
     });
     setIsInputEdit(!isInputEdit);
-    
   }
 
   useEffect(() => {
@@ -62,7 +66,7 @@ function Profile({onOpenBurgerPopup, currentUser, onUpdateUser, updateUserError,
             <div className="profile-form__container-input">
               <p className="profile-form__title">Имя</p>
               <input
-                readOnly={isInputEdit}
+                readOnly={isInputEdit && isSubmitting}
                 id="name"
                 className="profile-form__input"
                 name="name"
@@ -80,7 +84,7 @@ function Profile({onOpenBurgerPopup, currentUser, onUpdateUser, updateUserError,
             <div className="profile-form__container-input">
               <p className="profile-form__title">E-mail</p>
               <input
-                readOnly={isInputEdit}
+                readOnly={isInputEdit && isSubmitting}
                 id="email"
                 className="profile-form__input"
                 name="email"
@@ -115,9 +119,9 @@ function Profile({onOpenBurgerPopup, currentUser, onUpdateUser, updateUserError,
             </Link>
           </div>
           <div className={saveButton}>
-            <button className={buttonClassName} disabled={buttonDisables}>
-              Сохранить
-            </button>
+          <button className={buttonClassName} disabled={buttonDisables && isSubmitting}>
+          Сохранить
+          </button>
           </div>
         </form>
       </main>

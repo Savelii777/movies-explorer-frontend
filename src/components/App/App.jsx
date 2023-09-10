@@ -17,6 +17,8 @@ import Preloader from "../Preloader/Preloader";
 import {register, login} from "../../utils/Auth";
 import {api} from "../../utils/MainApi";
 import {apiMovies} from "../../utils/MoviesApi";
+import { SHORT_FILM_DURATION } from '../../utils/constants';
+
 
 function App() {
   
@@ -214,7 +216,7 @@ function handleUpdateUserClick(value) {
         setOpenInfoTooltip(true);
         isregisterResponse({
           status: true,
-          text: "Ура! Вы успешно зарегистрировались!",
+          text: "Ура! Вы успешно изменили данные!",
         });
       }
     })
@@ -297,29 +299,44 @@ function handleUpdateUserClick(value) {
   }
 
   function handleFilteredMovies(formValue, checkbox) {
+    if (!localStorage.getItem('allMovies')) {
+      setIsLoading(true);
+      if (loggedIn && isFiltered) {
+      apiMovies
+      .getMovies()
+      .then((movies) => {
+      setMovies(movies);
+      navigate({ replace: false });
+      console.log("Фильмы подгрузились");
+      })
+      .catch((err) => {
+      setMoviesError(errorText);
+      })
+      .finally(setTimeout(() => setIsLoading(false), 1000));
+      }
+    }
     const filteredMovies = movies.filter((item) =>
-      item.nameRU.toLowerCase().includes(formValue.toLowerCase())
+    item.nameRU.toLowerCase().includes(formValue.toLowerCase())
     );
-  
     let sortFilteredMovies = filteredMovies;
     if (checkbox) {
-      sortFilteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+    sortFilteredMovies = filteredMovies.filter((movie) => movie.duration <= SHORT_FILM_DURATION);
+
     }
-  
     setActiveShowAllMovies(true);
     setIsFiltered(true);
     setFilteredAllMovies(sortFilteredMovies);
-  
     localStorage.setItem('formValue', JSON.stringify(formValue));
     localStorage.setItem('filteredMovies', JSON.stringify(sortFilteredMovies));
-  }
+    }
+    
 
  
   function handleShowAllMovies() {
     setFilteredAllMovies(movies)
     localStorage.removeItem("filteredMovies")
     localStorage.removeItem("formValue")
-    localStorage.removeItem("chechbox")
+    localStorage.removeItem("checkbox")
     localStorage.setItem('allMovies', JSON.stringify(movies));
     window.scrollTo(0, 0);
     setIsFiltered(true);
@@ -340,7 +357,9 @@ function handleCheckboxFiltered(checkbox) {
   const formValue = JSON.parse(localStorage.getItem('formValue'));
 
   if (filteredMovies) {
-    let sortFilteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+    let sortFilteredMovies = filteredMovies.filter((movie) => movie.duration <= SHORT_FILM_DURATION);
+
+
 
     if (checkbox) {
       filterMovies = sortFilteredMovies;
@@ -356,7 +375,8 @@ function handleCheckboxFiltered(checkbox) {
       filterMovies = movies;
     }
   } else if (allMovies) {
-    let sortFilteredMovies = allMovies.filter((movie) => movie.duration <= 40);
+    let sortFilteredMovies = allMovies.filter((movie) => movie.duration <= SHORT_FILM_DURATION);
+
 
     if (checkbox) {
       filterMovies = sortFilteredMovies;
@@ -404,14 +424,15 @@ useEffect(() => {
     );
   
     if (saveCheckboxPage) {
-      filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+      filteredMovies = filteredMovies.filter((movie) => movie.duration <= SHORT_FILM_DURATION);
+
     }
   
     setFilteredMovies(filteredMovies);
   }, [savedMovies, value, saveCheckboxPage]);
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={{currentUser, setCurrentUser, savedMovies, setSavedMovies}}>
       <div className="page">
         {pageLoading ? (
           <Preloader />
@@ -439,7 +460,6 @@ useEffect(() => {
                     handleShowAllMovies={handleShowAllMovies}
                     handleDeleteMovies={handleDeleteMovies}
                     movies={filteredAllMovies}
-                    savedMovies={savedMovies}
                     errorSpan={searchFormSpanError}
                     setErrorSpan={setSearchFormSpanError}
                     handleCheckboxFiltered={handleCheckboxFiltered}
@@ -478,7 +498,6 @@ useEffect(() => {
                     component={Profile}
                     isLoggedIn={loggedIn}
                     onOpenBurgerPopup={handleOpenBurgerPopup}
-                    currentUser={currentUser}
                     onUpdateUser={handleUpdateUserClick}
                     updateUserError={updateUserError}
                     signOut={signOut}

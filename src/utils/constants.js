@@ -23,3 +23,5 @@ export const errorText =
     TABLET: 8,
     DESKTOP: 12,
   }
+
+  export const SHORT_FILM_DURATION = 40;

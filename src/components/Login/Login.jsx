@@ -9,9 +9,16 @@ function Login({login}) {
 
   function handelSubmit(e) {
     e.preventDefault();
-    login(formValue.password, formValue.email);
-    formValue.password = "";
-    formValue.email = "";
+    login(formValue.password, formValue.email)
+      .then((response) => {
+        if (response.status === 200) {
+          formValue.password = "";
+          formValue.email = "";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   const buttonDisables = !(errors.email === "" && errors.password === "");

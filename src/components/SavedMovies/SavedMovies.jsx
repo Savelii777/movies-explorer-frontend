@@ -12,6 +12,7 @@ function SavedMovies(props) {
   useEffect(() => {
     localStorage.removeItem("filteredMovies")
     localStorage.removeItem("formValue")
+    localStorage.removeItem("checkbox")
   }, []);
 
   return (
