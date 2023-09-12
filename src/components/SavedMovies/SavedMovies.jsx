@@ -9,12 +9,6 @@ import React, { useEffect } from 'react';
 function SavedMovies(props) {
   const {onOpenBurgerPopup, isLoading} = props;
 
-  useEffect(() => {
-    localStorage.removeItem("filteredMovies")
-    localStorage.removeItem("formValue")
-    localStorage.removeItem("checkbox")
-  }, []);
-
   return (
     <Layout className="header" isLoggedIn card onOpenBurgerPopup={onOpenBurgerPopup} page>
       <main className="saved-movies">

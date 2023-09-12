@@ -334,9 +334,6 @@ function handleUpdateUserClick(value) {
  
   function handleShowAllMovies() {
     setFilteredAllMovies(movies)
-    localStorage.removeItem("filteredMovies")
-    localStorage.removeItem("formValue")
-    localStorage.removeItem("checkbox")
     localStorage.setItem('allMovies', JSON.stringify(movies));
     window.scrollTo(0, 0);
     setIsFiltered(true);
