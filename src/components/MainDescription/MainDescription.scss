@@ -1,0 +1,14 @@
+.main-description__title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  margin: 0 0 23px;
+  letter-spacing: -0.04em;
+  border-bottom: 1px solid white;
+  width: 100%;
+  min-height: 47px;
+  @media screen and (max-width: 320px) {
+    font-size: 18px;
+    margin-top: 2px;
+  }
+}
