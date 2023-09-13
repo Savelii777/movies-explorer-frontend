@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./NotFound.scss";
 
 function NotFound() {
+  const navigate = useNavigate();
+
   const goBack = () => {
-    window.history.go(-4);
+    navigate(-2);
   };
+  
 
   return (
     <main className="not-found">

@@ -1,4 +1,4 @@
-  import React, { useEffect, useContext} from "react";
+  import React, { useEffect, useContext, useState} from "react";
   import "./SearchForm.scss";
 
 
@@ -16,6 +16,9 @@
       handleCheckboxFiltered,
     } = props;
 
+  const [formSavedMoviesValue, setFormSavedMoviesValue] = useState("");
+
+
   const switcherClassName = `search-form__checkbox-switcher ${
       checkbox && "search-form__checkbox-switcher_active"
     }`;
@@ -27,19 +30,36 @@
       if (localStorage.getItem("formValue") && !pageSavedMovie) {
         const value = JSON.parse(localStorage.getItem("formValue"))
         setFormValue(value);
+      }else{
+        setFormValue(formSavedMoviesValue); 
       }
     }, []);
+
+    useEffect(() => {
+      if(pageSavedMovie){
+        handleFilteredMovies(formSavedMoviesValue, checkbox, false)
+      }
+    }, [pageSavedMovie]);
+
 
     useEffect(() => {
       if(localStorage.getItem("checkbox") &&! pageSavedMovie) {
         const checkbox = JSON.parse(localStorage.getItem("checkbox"));
         setCheckbox(checkbox)
       }
+      if(pageSavedMovie){
+        setCheckbox(false)
+        handleCheckboxFiltered(false)
+      }
     }, []);
 
     function handleChange(e) {
-      setFormValue(e.target.value);
-      setErrorSpan("");
+      if(pageSavedMovie){
+        setFormSavedMoviesValue(e.target.value);
+        setErrorSpan("");
+      }
+        setFormValue(e.target.value);
+        setErrorSpan("");
     }
 
     function handleCheckboxChange() { // нажали на чекбокс
@@ -60,7 +80,7 @@
         setErrorSpan("Поле не должно быть пустым");
         return;
       }
-      handleFilteredMovies(formValue, checkbox)
+      handleFilteredMovies(formValue, checkbox, false)
     }
 
 
@@ -69,7 +89,7 @@
         <form onSubmit={handelSortSubmit} noValidate>
           <div className="search-form__input-container">
           <div className="search-form__icon"></div>
-            <input className="search-form__input" placeholder="Фильм" type="text" name="movie" value={formValue || ""} onChange={handleChange} required></input>
+            <input className="search-form__input" placeholder="Фильм" type="text" name="movie" value={formValue || "" } onChange={handleChange} required></input>
             <button className={"search-form__button button-hover"} type="submit" aria-label="Кнопка найти"  disabled={errorSpan}>Найти</button>
           </div>
             <span className="form__text-error">{errorSpan}</span>
